@@ -1,29 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <Navbar></Navbar>
+    <div>{{ fretboardService.init() }}</div>
+    <p>boasdom</p>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
+import { Component, Vue, Inject } from "vue-property-decorator";
+import Navbar from "./components/Navbar.vue";
+import { FretboardService } from "./services/fretboard/fretboardService";
 
 @Component({
   components: {
-    HelloWorld
+    Navbar
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  data() {
+    return { fretboardService: new FretboardService() };
+  }
+}
 </script>
 
 <style lang="scss">
+body {
+  margin: 0px;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+
+p {
+  color: blue;
 }
 </style>
