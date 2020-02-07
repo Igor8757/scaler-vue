@@ -21,5 +21,7 @@ p {
 .navbody {
   background-color: gray;
   overflow: hidden;
+  height: 75px;
+  top: 0;
 }
 </style>
